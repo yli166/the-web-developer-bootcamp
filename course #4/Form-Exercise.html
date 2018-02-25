@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+<h1>Register</h1>
+<form>
+	<label for = 'firstname'>First Name:</label>
+	<input id = 'firstname'type="text" name="firstname" placeholder="Join" required="True">
+	<label for = 'lastname'>Last Name:</label>
+	<input id = 'lastname'type="text" name="lastname" placeholder="Smith" required="True"> 
+	<div>
+		<label for="male">Male</label>
+		<input id="male" name = 'gender' type="radio" value="male">
+		<label for="female">Famle</label>
+		<input id="female" name = 'gender' type="radio" value="female">
+		<label for="other">Other</label>
+		<input id= 'other' name = 'gender' type="radio" value="other">
+	</div>
+	<div>
+		<label>Email:
+		<input type="email" name="email" placeholder="your name" required="True">
+		</label>
+		<label>Password:
+		<input type="password" name="password" placeholder="your password" required="True" pattern=".{5,10}" required title="password must be between 5 and 10 characters">
+		</label>
+	</div>
+	<div>
+		<label>
+			Birthday:
+		<select>
+			<option>Month</option>
+		</select>
+		<select>
+			<option>Day</option>
+		</select>
+		<select>
+			<option>year</option>
+		</select>
+		</label>
+	</div>
+	<div>
+		<label for='agreed'> I agree it</label>
+		<input type="checkbox" name="agreed" id="agreed">
+	</div>
+	<button>submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<div class='container'>
+    <div class='row'>
+        <h1 style='text-align:center'> Add A New Comment</h1>
+        <div style="width:30%; margin:25px auto;">
+        <form action= '/campgrounds/<%= campground._id%>/comment' method= 'POST'>
+            <div class='form-group'>
+            <input class='form-control' type='text' name= 'comment[author]' placeholder='Your Name'>
+   <!-- 这里用comment[author] 是为了req.body.comment 里面包含两个内容而服务的 -->
+            </div>            
+            <div class='form-group'>
+            <input class='form-control' type='text' name= 'comment[text]' placeholder='Your comment'>
+            </div>                      
+            <div class='form-group'>
+            <button class='btn btn-large btn-primary btn-block'>Sumbmit</button>
+            </div>
+        </form>
+        </div>
+        <a href='/campgrounds'>Go Back</a>
+
+    </div>
+</div>
+<% include ../partials/footer %>

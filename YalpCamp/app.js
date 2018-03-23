@@ -4,13 +4,18 @@ var bodyPaser = require("body-parser");
 var mongoose = require('mongoose')
 var Campground = require('./models/campground')
 var Comment = require('./models/comment')
-// var User = require('.models/User')
+var User = require('./models/user')
 var seedDB = require('./seeds')
+var passport = require('passport')
+var LocalStrategy = require('passport-local')
 
 
 seedDB()
 mongoose.connect('mongodb://localhost/yelp_camp');
 app.use(bodyPaser.urlencoded({extended: true}));
+// add css ============
+app.use(express.static(__dirname + '/public'));
+// ====================
 app.set('view engine','ejs')
 app.get('/',function(req,res){
     res.render('landing')
@@ -88,7 +93,14 @@ app.post('/campgrounds/:id/comment',function(req,res){
 // =======================
 
 
+// passport ==============
+
+app.use(require('express-session'))
+
+// =======================
+
 app.get('/campgrounds/:id',function(req,res) {
+    // 外挂一个 ‘comment’ 以用来获得正确的id
     Campground.findById(req.params.id).populate('comments').exec(function(err,foundcampground){
         if(err){
             console.log(err);

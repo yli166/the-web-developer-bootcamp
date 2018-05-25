@@ -55,7 +55,7 @@ app.use(authRoutes);
 app.use(commentRoutes);
 app.use(flash());
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 4000,function(){
     console.log('yalpcamp has started!');
 });
 // app.listen(process.env.PORT,process.env.IP,function(){
